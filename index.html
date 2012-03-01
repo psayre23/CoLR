@@ -109,7 +109,11 @@
 <script src="https://raw.github.com/psayre23/CoLR/master/CoLR.js"></script>
 
 <script>
-(function ($) {
+(function () {
+  
+  function $(query, parent) {
+    return (parent||document).querySelector(query);
+  }
   
   $('#compile').onclick = function () {
     $('#compressed').value = lastResort($('#source').value);
@@ -118,7 +122,7 @@
     $('#diff').innerHTML = ((1 - ($('#compressed').value.length / $('#source').value.length)) * 100).toPrecision(3) + '%'
   };
   
-})(document.querySelector);
+})();
 </script>
 
 </body>
